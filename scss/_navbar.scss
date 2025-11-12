@@ -1,0 +1,39 @@
+nav {
+    ul {
+        width: 100%;
+        text-align: center;
+        list-style: none;
+        gap: 0.2em;
+    }
+}
+
+.navbar {
+    padding: 0 5rem;
+
+    li:not(:last-child) {
+        position: relative;
+        display: inline-block;
+
+        .nav-link::after {
+            content: "";
+            height: 2px;
+            width: 0;
+            background-color: $color-secundario;
+            position: absolute;
+            bottom: 10px;
+            left: 5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 90%;
+        }
+    }
+}
+
+li {
+    .active::after {
+        width: 100% !important;
+        left: 0 !important;
+    }
+}

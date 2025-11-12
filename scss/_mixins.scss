@@ -1,0 +1,19 @@
+@mixin button-styles ($bg-color) {
+    background-color: $bg-color;
+    color: white;
+    padding: .75em 1.5em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+@mixin cards ($width, $height) {
+    background-color: white;
+    color: black;
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: $width;
+    height: $height;
+    text-align: center;
+}

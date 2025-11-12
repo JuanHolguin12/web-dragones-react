@@ -1,0 +1,413 @@
+@import 'variables';
+@import 'navbar';
+@import 'footer';
+@import 'mixins';
+
+.test {
+    border: 2px solid red;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+
+    a {
+        @extend a;
+    }
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.125em;
+    margin-bottom: 10px;
+}
+
+section:not(:nth-child(1)) {
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    gap: 1em;
+    margin: 2em 0;
+}
+
+
+
+.btn-fill {
+    @include button-styles($color-principal);
+}
+
+.btn-outline {
+    @include button-styles(transparent);
+    border: 1px solid white;
+}
+
+
+.btn {
+    background-color: $color-principal;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-fill:hover,
+.btn-outline:hover,
+.btn:hover {
+    background-color: $color-secundario;
+    color: white;
+    border-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.padding-sections {
+    padding: 0 10%;
+}
+
+/* seccion main sin imagen */
+.main-section {
+    text-align: center;
+    color: white;
+    padding: 5% 10%;
+    background: $gradiente;
+}
+
+
+.main-section-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: $gradiente;
+    color: white;
+    padding: 5% 10%;
+
+    .header-section {
+        width: 90%;
+    }
+
+    .image-section img {
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 3px 3px 20px rgb(0, 0, 0), -3px -3px 20px rgba(255, 255, 255, 0.253);
+    }
+
+}
+
+/* News section */
+.news-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: .5em;
+
+    a {
+        h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            &:hover {
+                color: $color-secundario;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+        }
+    }
+
+    .news-article {
+        width: 100%;
+        height: 35rem;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+
+        img {
+            width: 100%;
+            height: 17em;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1em;
+            text-align: left;
+            margin-bottom: 10px;
+            color: #3c3c3c90;
+        }
+
+    }
+}
+
+/* Galeria Dragones */
+.gallery-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 3em 0;
+    background-color: #f4f4f4;
+
+    img {
+        width: 80%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Nuestra Historia */
+.history-section {
+    gap: 10em;
+    margin-top: 2em;
+
+    .history-text {
+        gap: 2em;
+        justify-content: center;
+        align-items: center;
+    }
+
+    img {
+        border-radius: 10px;
+        width: 75%;
+        margin: 0 auto;
+    }
+}
+
+/* Nuestros Valores */
+.values-container {
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2em;
+}
+
+.card-icons {
+    @include cards(16rem, 15rem);
+
+    p {
+        color: $text-opacity;
+    }
+
+    .icon-value,
+    .icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 80px;
+        height: 80px;
+        color: $color-principal;
+        font-size: 3.5em;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .icon-value {
+        background-color: #204b786b;
+        border-radius: 50%;
+    }
+
+}
+
+.rewards {
+    height: 18rem;
+}
+
+/* Nuestro Equipo */
+.team-container {
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2em;
+
+    .team-card {
+        @include cards(16rem, 15rem);
+
+        img {
+            width: 7rem;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: $color-secundario;
+        }
+    }
+}
+
+
+/* Cards de Categorias */
+.category-cards-container {
+    gap: 1em;
+    justify-content: center;
+    margin-top: 2em;
+
+    .category-card {
+        @include cards(12rem, 12rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+            box-shadow: -2px 2px 15px $color-secundario-opacity;
+        }
+    }
+
+    h3 {
+        font-weight: bold;
+        font-size: 3em;
+    }
+}
+
+/* News Page */
+.image-news img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Contact-us */
+
+form {
+
+    input,
+    textarea {
+        padding: 4px 8px;
+        border-radius: 8px;
+    }
+}
+
+
+/* Stats */
+.table-stats {
+
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        margin-top: 1em;
+
+        .positions-leads {
+            width: 5px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px 0;
+            text-align: center;
+        }
+
+        th {
+            background-color: $color-principal;
+            color: white;
+
+            &:first-child {
+                width: 10%;
+            }
+        }
+
+        tbody{
+            tr{
+                td{
+                    img{
+                        width: 80%;
+                        height: 70px;
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+
+@media (min-width: 768px) {
+    .navbar {
+        padding: 0 5rem;
+    }
+
+    .nav-link {
+        padding: 0.6em 0;
+    }
+
+    .main-section-img {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .button-container {
+        flex-direction: row;
+        justify-content: start;
+    }
+
+    .news-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .news-article {
+        min-width: 10%;
+        margin-right: .8em;
+    }
+
+    .history-section img {
+        width: 35%;
+    }
+
+    .image-section {
+        text-align: center;
+
+        img {
+            box-shadow: 30px 30px 100px rgb(0, 0, 0), -30px -30px 100px rgba(255, 255, 255, 0.253);
+        }
+    }
+
+    .gallery-container img {
+        width: 20%;
+    }
+
+    iframe {
+        width: 100%;
+        height: 350px;
+    }
+
+    /* Contact-us */
+
+    form {
+        padding: 0 30%;
+    }
+
+    .image-news img {
+        width: 40%;
+    }
+}

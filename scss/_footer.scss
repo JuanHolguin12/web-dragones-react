@@ -1,0 +1,42 @@
+.footer-container {
+    padding: 2% 5%;
+    background-color: $color-principal;
+    color: $text-opacity;
+
+    /* .footer-content{
+        gap: 0.5em;
+    } */
+
+    h3 {
+        color: white;
+        text-align: center;
+        margin: 1em 0;
+    }
+
+    .footer-nav,
+    .footer-section {
+        width: 100%;
+        gap: 1em;
+
+        a {
+            color: $text-opacity;
+        }
+
+        li {
+            margin-bottom: .7rem;
+        }
+    }
+
+    .footer-bottom {
+        width: 100%;
+        border-top: $text-opacity 1px solid;
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .icon-social {
+        font-size: 1.5em;
+        color: var(--text-opacity);
+        margin: 0 .3em;
+    }
+}
