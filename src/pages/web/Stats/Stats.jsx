@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { position1,position2, position3 } from '../../../assets';
+import { ENV } from '../../../utils';
 
 export function Stats() {
     const image_positions = [position1, position2, position3];
@@ -8,16 +9,11 @@ export function Stats() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const sheetId = "10UrkLpHRY5rcbJQNjJVBbgttTyVEkHa19U1yeTJdIqs";
-                const apiKey = "AIzaSyAL_7SRVolZks1x7YxoK3dxLxyZ9kVJTII";
-                const range = "Jugadores";
-
                 const res = await fetch(
-                    `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`
+                    `https://sheets.googleapis.com/v4/spreadsheets/${ENV.SHEETS.SHEETID}/values/${ENV.SHEETS.RANGE}?key=${ENV.SHEETS.APIKEY}`
                 );
                 const result = await res.json();
                 setData(result.values); // ✅ guardar solo las filas
-                console.log(result.values);
             } catch (error) {
                 console.error("Error al obtener los datos:", error);
             }

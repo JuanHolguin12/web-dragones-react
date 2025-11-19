@@ -1,3 +1,5 @@
 export * from './Footer'
 export * from './NavBar'
 export * from './NewsCard'
+export * from './CategoryCard'
+export * from './GallerySlideGrid'
