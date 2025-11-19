@@ -23,6 +23,8 @@ dist-ssr
 *.sln
 *.sw?
 
-# Ignorar carpeta utils completa
-src/utils/
+# Environment variables
+.env
+.env.local
+.env.*.local
 
