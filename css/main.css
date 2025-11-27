@@ -228,6 +228,12 @@ section:not(:nth-child(1)) {
   color: rgba(60, 60, 60, 0.5647058824);
 }
 
+/* New Page */
+.new-page-section img {
+  width: 70%;
+  border-radius: 8px;
+}
+
 /* Galeria Dragones */
 .gallery-container {
   display: flex;

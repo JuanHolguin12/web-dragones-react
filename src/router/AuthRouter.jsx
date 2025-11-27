@@ -2,13 +2,12 @@ import React from 'react'
 import { Routes, Route, Navigate } from "react-router-dom";
 
 
-//COMPONENTS
+//LAYOUT
 import { WebLayout } from '../layout/WebLayout'
 //PAGES
-import { Home, AboutUs, FIB, Stats } from '../pages/web'
+import { Home, AboutUs, FIB, Stats, News } from '../pages/web'
 
 
-//const user= null
 export function AuthRouter() {
 
     // eslint-disable-next-line no-unused-vars
@@ -25,7 +24,7 @@ export function AuthRouter() {
             <Route path='/sobre_nosotros' element={loadLayout(WebLayout, AboutUs)} />
             <Route path='/festival_internacional' element={loadLayout(WebLayout, FIB)} />
             <Route path='/estadisticas' element={loadLayout(WebLayout, Stats)} />
-
+            <Route path='/news/*' element={loadLayout(WebLayout, News)} />
         </Routes>
     )
 }

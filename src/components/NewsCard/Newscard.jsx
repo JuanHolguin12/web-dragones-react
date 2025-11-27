@@ -1,17 +1,27 @@
 import React from 'react'
 import { logoJPG } from '../../assets'
+import { Link } from 'react-router-dom'
 
 export function Newscard(props) {
     const { news } = props
+    const decoded = decodeURIComponent(news.title);
+
+    const slug = decoded
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^a-z0-9\s]/g, "")
+        .trim()
+        .replace(/\s+/g, "-");
+
     return (
-        <article class="news-article">
-            <p class="news-date">01/01/2025</p>
-            <a href="./pages/noticia.html">
+        <article className="news-article">
+            <p className="news-date">01/01/2025</p>
+            <Link to={`/news/${slug}`} state={{ news }}>
                 <h3>{news.title}</h3>
-            </a>
+            </Link>
             <img src={logoJPG} alt="Imagen del nuevo entrenador" />
-            <p>Nos complace anunciar la incorporación de un nuevo entrenador con una vasta experiencia en el
-                baloncesto profesional.</p>
+            <p>{news.description}</p>
         </article>
     )
 }
