@@ -9,7 +9,7 @@ export function CategoryCard(props) {
       <img src={category.imgSrc} alt="Imagen de la categoría" />
       <h3>{category.name}</h3>
       <p>{category.description}</p>
-      <a className='btn' target='_blank' href={`https://wa.me/${ENV.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`}>Ver Más</a>
+      <a className='btn' target='_blank' href={`https://wa.me/${ENV.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`}>Más Información</a>
     </article>
   )
 }

@@ -44,7 +44,7 @@ export function Home() {
           <p>Elige la categoría que mejor se adapte a tus necesidades y nivel de
             habilidad.</p>
         </div>
-        <div class="categories-container d-flex" data-aos="fade-up">
+        <div class="categories-container d-flex flex-column flex-md-row" data-aos="fade-up">
           {map(category_list, (category) => (
             <CategoryCard key={category.id} category={category} />
           ))}

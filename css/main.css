@@ -53,6 +53,11 @@ li .active::after {
 .footer-container .footer-section a {
   color: #9CA3AF;
 }
+.footer-container .footer-nav a :hover,
+.footer-container .footer-section a :hover {
+  color: #B93D17;
+  transition: color 0.5s ease;
+}
 .footer-container .footer-nav li,
 .footer-container .footer-section li {
   margin-bottom: 0.7rem;
@@ -65,7 +70,6 @@ li .active::after {
 }
 .footer-container .icon-social {
   font-size: 1.5em;
-  color: var(--text-opacity);
   margin: 0 0.3em;
 }
 

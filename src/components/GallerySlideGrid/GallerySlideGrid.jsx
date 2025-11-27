@@ -8,8 +8,8 @@ export function GallerySlideGrid(props) {
             {/* Carrusel en móvil */}
             <div id="carouselExample" class="carousel slide d-md-none">
                 <div class="carousel-inner">
-                    {map(images, (image) => (
-                        <div key={image.id} class="carousel-item active">
+                    {map(images, (image, index) => (
+                        <div key={image.id} className={`carousel-item ${index === 0 ? "active" : ""}`}>
                             <img src={image.imgSrc} class="d-block w-100" alt={image.imgAlt} />
                         </div>
                     ))}
@@ -25,9 +25,9 @@ export function GallerySlideGrid(props) {
             </div>
 
             {/* Grid en pantallas md+ */}
-            <div className="gallery-container d-sm-none d-md-flex ">
+            <div className="gallery-container d-none d-md-flex">
                 {images.map((img, i) => (
-                    <img className='active' key={i} src={img.imgSrc} />
+                    <img className='' key={i} src={img.imgSrc} />
                 ))}
             </div>
         </>

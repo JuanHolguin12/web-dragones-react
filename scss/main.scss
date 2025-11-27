@@ -1,7 +1,7 @@
-@import 'variables';
-@import 'navbar';
-@import 'footer';
-@import 'mixins';
+@use 'variables' as *;
+@use 'navbar' as *;
+@use 'footer' as *;
+@use 'mixins' as *;
 
 .test {
     border: 2px solid red;
