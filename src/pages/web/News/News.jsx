@@ -5,18 +5,20 @@ export function News() {
     const location = useLocation();
     const news = location.state?.news;
     console.log(news);
-    
+
 
     return (
-        <section className='new-page-section'>
-            <h2>{news.title}</h2>
-            <aside>
-                <p>{news.description}</p>
-            </aside>
-            <aside>
-                <img src={news.imgSrc} />
-            </aside>
+        <main className='new-page-section'>
+            <h2 className='text-center'>{news.title}</h2>
+            <section className='d-flex padding-sections'>
+                <aside>
+                    <p>{news.description}</p>
+                </aside>
+                <aside>
+                    <img src={news.imgSrc} />
+                </aside>
+            </section>
 
-        </section>
+        </main>
     )
 }
