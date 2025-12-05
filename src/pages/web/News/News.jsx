@@ -8,7 +8,7 @@ export function News() {
 
 
     return (
-        <main className='new-page-section'>
+        <main className='new-page-section pt-5'>
             <h2 className='text-center'>{news.title}</h2>
             <section className='d-flex padding-sections'>
                 <aside>

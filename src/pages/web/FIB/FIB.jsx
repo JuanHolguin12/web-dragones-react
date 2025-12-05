@@ -14,6 +14,10 @@ export function FIB() {
                         lugar en esta competencia de alto nivel</p>
                     <div class="button-container">
                         <a class="btn-fill">Inscribir Equipo</a>
+                        <Link to={'/estadisticas'} class="btn-outline">
+                            <i class="fa-regular fa-chart-bar"></i>
+                            <span className='ms-2'>Estadisticas</span>
+                        </Link>
                     </div>
                 </header>
                 <figure class="image-section">

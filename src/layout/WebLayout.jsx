@@ -7,7 +7,7 @@ export function WebLayout(props) {
     return (
         <div>
             <div>
-                <Navbar />
+                <Navbar/>
                 {children}
                 <Footer />
             </div>

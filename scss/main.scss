@@ -3,6 +3,10 @@
 @use 'footer' as *;
 @use 'mixins' as *;
 
+main {
+    margin-top: 100px;
+}
+
 .test {
     border: 2px solid red;
 }
@@ -43,6 +47,31 @@ h3 {
     font-size: 1.125em;
     margin-bottom: 10px;
 }
+.filter-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+select {
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s;
+}
+
+/* filters */
+select:hover {
+  border-color: #777;
+}
+
+select:focus {
+  border-color: #4A90E2;
+  box-shadow: 0 0 4px #4A90E2;
+}
 
 section:not(:nth-child(1)) {
     margin: 3rem 0;
@@ -56,6 +85,7 @@ section:not(:nth-child(1)) {
     gap: 1em;
     margin: 2em 0;
 }
+
 
 
 
@@ -167,9 +197,10 @@ section:not(:nth-child(1)) {
 
     }
 }
+
 /* New Page */
-.new-page-section{
-    img{
+.new-page-section {
+    img {
         width: 70%;
         border-radius: 8px;
     }
@@ -184,6 +215,7 @@ section:not(:nth-child(1)) {
     gap: 10px;
     padding: 3em 0;
     background-color: #f4f4f4;
+
     img {
         width: 80%;
         border-radius: 10px;
@@ -297,6 +329,7 @@ section:not(:nth-child(1)) {
 
 .categories-container {
     justify-content: center;
+    align-items: center;
     gap: 2em;
 
     .category-card {
@@ -308,7 +341,8 @@ section:not(:nth-child(1)) {
             height: 400px;
             margin-bottom: 10px;
         }
-        p{
+
+        p {
             text-align: left;
         }
     }
@@ -335,46 +369,76 @@ form {
 
 
 /* Stats */
+.stats-page {
+    height: calc(100vh - 150px);
+    width: 100%;
+    display: block; // ⬅ CAMBIAR ESTO
+    padding: 0 5%;
+    overflow-x: auto;
+}
+
+.loader {
+    height: calc(100vh - 150px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .table-stats {
+    width: max-content !important; // ⬅ CRUCIAL
+    min-width: 100%; // ⬅ evita que se achique
+    white-space: nowrap; // ⬅ evita quiebres
+    border-collapse: collapse;
+    overflow-y: auto;
+    height: 70vh;
 
     table {
-        width: 80%;
+        width: 100%; // ← obligatorio para scroll horizontal
         border-collapse: collapse;
-        margin-top: 1em;
+        white-space: nowrap;
+        font-size: 12px;
+        height: 200px;
+        background-color: white;
+        text-align: left;
+        border: 1px solid gainsboro;
+        border-radius: 8px;
 
-        .positions-leads {
-            width: 5px;
+        td:first-child {
+            width: 50px;
         }
 
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 8px 0;
-            text-align: center;
-        }
+        .container-leads {
+            font-size: 16px;
 
-        th {
-            background-color: $color-principal;
-            color: white;
 
-            &:first-child {
-                width: 10%;
+            p {
+                font-weight: 900;
+                margin-bottom: 0;
+            }
+
+            .gold {
+                color: goldenrod;
+            }
+
+            .silver {
+                color: silver;
+            }
+
+            .bronce {
+                color: saddlebrown;
             }
         }
+    }
 
-        tbody {
-            tr {
-                td {
-                    img {
-                        width: 80%;
-                        height: 70px;
-                    }
-                }
-            }
-        }
-
+    th {
+        color: $text-opacity;
     }
 }
+
+
+
+
 
 
 @media (min-width: 768px) {
@@ -435,5 +499,10 @@ form {
 
     .image-news img {
         width: 40%;
+    }
+    .stats-page{
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
