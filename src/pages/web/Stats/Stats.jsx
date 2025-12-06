@@ -8,8 +8,10 @@ export function Stats() {
     /* const image_positions = [position1, position2, position3]; */
     const colors_leads = ["gold", "silver", "bronce"]
     const [data, setData] = useState([]);
-    const [filter, setFilter] = useState("");
+    /*     const [filter, setFilter] = useState("");*/
     const [filtered, setFilteredData] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
+    const [selectedRama, setSelectedRama] = useState("");
 
 
     useEffect(() => {
@@ -29,7 +31,52 @@ export function Stats() {
 
         fetchData();
     }, []);
-    const handleSelect = (value) => {
+
+
+    const applyFilters = () => {
+        let result = data.slice(1); // toda la data menos encabezados
+
+        // Filtrar por categoría (columna 3)
+        if (selectedCategory !== "") {
+            result = result.filter(row => row[3] === selectedCategory);
+        }
+
+        // Filtrar por rama (columna 4 por ejemplo)
+        if (selectedRama !== "") {
+            result = result.filter(row => row[4] === selectedRama);
+        }
+
+        setFilteredData(result);
+    };
+    const handleRama = (value) => {
+        setSelectedRama(value);
+    };
+    const handleCategory = (value) => {
+        setSelectedCategory(value);
+    };
+
+    const handleSortByAsistencias = (value) => {
+        const sorted = [...filtered].sort((a, b) => {
+            switch (value) {
+                case "puntos":
+                    return Number(b[5]) - Number(a[5]);
+                case "triples":
+                    return Number(b[6]) - Number(a[6]);
+                case "asistencias":
+                    return Number(b[7]) - Number(a[7]);
+                case "rd":
+                    return Number(b[8]) - Number(a[8]);
+                case "ro":
+                    return Number(b[9]) - Number(a[9]);
+                case "tl":
+                    return Number(b[10]) - Number(a[10]);
+            }
+        });
+
+        setFilteredData(sorted);
+    };
+
+    /* const handleSelect = (value) => {
         //const value = "U18"
         let newData = ""
         if (value == "") {
@@ -39,26 +86,48 @@ export function Stats() {
         }
         setFilteredData(newData)
 
-    };
+    }; */
+
+    useEffect(() => {
+        if (data.length > 0) {
+            applyFilters();
+        }
+    }, [selectedCategory, selectedRama, data]);
     //Recuperar los headers
     const heads = data.slice(0)
 
     // ✅ Verifica que haya datos antes de renderizar
-    if (!filtered.length) return <div className='loader'><LineSpinner size="100" stroke="5" speed="1" color="#B93D17" /></div>;
+    if (!data.length) return <div className='loader'><LineSpinner size="100" stroke="5" speed="1" color="#B93D17" /></div>;
 
     return (
         <main className='stats-page d-flex flex-column'>
             <section className='filter-container'>
-                <select onChange={(e) => handleSelect(e.target.value)}>
-                    <option value="">Todos</option>
-                    <option value="U18">U18</option>
-                    <option value="U16">U16</option>
-                </select>
-                <select>
-                    <option value="">Todos</option>
-                    <option value="fem">Fem</option>
-                    <option value="masc">Masc</option>
-                </select>
+                <div>
+                    <label for="categorias">Categorias:</label>
+                    <select onChange={(e) => handleCategory(e.target.value)} id='categorias'>
+                        <option value="">Todos</option>
+                        <option value="U18">U18</option>
+                        <option value="U16">U16</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ramas">Ramas:</label>
+                    <select onChange={(e) => handleRama(e.target.value)} id='ramas'>
+                        <option value="masc">Masc</option>
+                        <option value="fem">Fem</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="tipo_estadistica">Tipo de estadistica:</label>
+                    <select onChange={(e) => handleSortByAsistencias(e.target.value)} id='tipo_estadistica'>
+                        <option value="puntos">Puntos</option>
+                        <option value="triples">Triples</option>
+                        <option value="asistencias">Asistencias</option>
+                        <option value="rd">Rebotes defensivos</option>
+                        <option value="ro">Rebotes ofensivos</option>
+                        <option value="tl">Tiros Libres</option>
+                    </select>
+                </div>
             </section>
             <section className="table-stats d-flex justify-content-center">
                 <table className='table table-striped '>

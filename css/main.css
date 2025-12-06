@@ -122,7 +122,12 @@ h3 {
 .filter-container {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+}
+.filter-container div {
+  margin: 40px;
+}
+.filter-container div label {
+  margin-right: 15px;
 }
 
 select {
@@ -142,8 +147,8 @@ select:hover {
 }
 
 select:focus {
-  border-color: #4A90E2;
-  box-shadow: 0 0 4px #4A90E2;
+  border-color: rgba(185, 61, 23, 0.337254902);
+  box-shadow: 0 0 4px rgba(185, 61, 23, 0.337254902);
 }
 
 section:not(:nth-child(1)) {
@@ -465,6 +470,10 @@ form textarea {
   text-align: left;
   border: 1px solid gainsboro;
   border-radius: 8px;
+}
+.table-stats table tr {
+  max-height: 10px;
+  min-height: 10px;
 }
 .table-stats table td:first-child {
   width: 50px;

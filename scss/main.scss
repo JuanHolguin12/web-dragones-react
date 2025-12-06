@@ -47,30 +47,39 @@ h3 {
     font-size: 1.125em;
     margin-bottom: 10px;
 }
-.filter-container{
+
+.filter-container {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+
+    div {
+        margin: 40px;
+        
+        label{
+            margin-right: 15px;
+        }
+    }
 }
+
 select {
-  padding: 10px 14px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: white;
-  cursor: pointer;
-  outline: none;
-  transition: 0.2s;
+    padding: 10px 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+    transition: 0.2s;
 }
 
 /* filters */
 select:hover {
-  border-color: #777;
+    border-color: #777;
 }
 
 select:focus {
-  border-color: #4A90E2;
-  box-shadow: 0 0 4px #4A90E2;
+    border-color: $color-secundario-opacity;
+    box-shadow: 0 0 4px $color-secundario-opacity;
 }
 
 section:not(:nth-child(1)) {
@@ -404,6 +413,11 @@ form {
         border: 1px solid gainsboro;
         border-radius: 8px;
 
+        tr {
+            max-height: 10px;
+            min-height: 10px;
+        }
+
         td:first-child {
             width: 50px;
         }
@@ -500,7 +514,8 @@ form {
     .image-news img {
         width: 40%;
     }
-    .stats-page{
+
+    .stats-page {
         display: flex;
         justify-content: center;
         align-items: center;
