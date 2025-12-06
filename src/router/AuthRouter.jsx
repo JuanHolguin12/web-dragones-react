@@ -5,7 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 //LAYOUT
 import { WebLayout } from '../layout/WebLayout'
 //PAGES
-import { Home, AboutUs, FIB, Stats, News } from '../pages/web'
+import { Home, AboutUs, FIB, Stats, News, Programming } from '../pages/web'
 
 
 export function AuthRouter() {
@@ -25,6 +25,7 @@ export function AuthRouter() {
             <Route path='/festival_internacional' element={loadLayout(WebLayout, FIB)} />
             <Route path='/estadisticas' element={loadLayout(WebLayout, Stats)} />
             <Route path='/news/*' element={loadLayout(WebLayout, News)} />
+            <Route path='/programacion/*' element={loadLayout(WebLayout, Programming)} />
         </Routes>
     )
 }

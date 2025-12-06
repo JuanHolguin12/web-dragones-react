@@ -31,7 +31,7 @@ export function Navbar() {
                                 <NavLink className="nav-link" aria-current="page" aria-disabled="true" to="/festival_internacional">Festival Internacional</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" aria-disabled="true" href="./pages/contacto.html">Contacto</a>
+                                <NavLink className="nav-link" aria-current="page" aria-disabled="true" to="/programacion">Programacion</NavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link btn">Inscribirte</a>

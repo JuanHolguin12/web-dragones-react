@@ -1,6 +1,8 @@
 import React from 'react'
 import { logoJPG } from '../../../assets'
 import { Link } from 'react-router-dom'
+import { Programming } from '../Programming'
+
 
 
 export function FIB() {
@@ -62,9 +64,9 @@ export function FIB() {
                     <Link to={"/estadisticas"} class="category-card">
                         <h3>U16</h3>
                     </Link>
-                    <a href="#" class="category-card">
+                    <Link to={"/estadisticas"} class="category-card">
                         <h3>U18</h3>
-                    </a>
+                    </Link>
                 </div>
             </section>
             <section>

@@ -38,6 +38,7 @@ li .active::after {
 }
 
 .footer-container {
+  margin-top: 40px;
   padding: 2% 5%;
   background-color: #204B78;
   color: #9CA3AF;
@@ -141,7 +142,6 @@ select {
   transition: 0.2s;
 }
 
-/* filters */
 select:hover {
   border-color: #777;
 }
@@ -162,6 +162,63 @@ section:not(:nth-child(1)) {
   justify-items: center;
   gap: 1em;
   margin: 2em 0;
+}
+
+.programming-section {
+  border: 1px solid rgba(128, 128, 128, 0.329);
+  border-radius: 10px;
+  /* box-shadow: 4px 4px 8px gray; */
+}
+.programming-section .content-programming {
+  padding: 16px;
+}
+.programming-section .content-programming .programming {
+  text-align: left;
+  border-left: 4px solid #B93D17;
+}
+.programming-section .content-programming .category-span {
+  color: white;
+  background-color: #010955;
+  border-radius: 99999px;
+  padding: 8px;
+}
+.programming-section .jornada {
+  background-color: #B93D17;
+  border-radius: 10px 10px 0 0;
+  padding: 20px;
+  color: white;
+}
+.programming-section .jornada i {
+  width: 40px;
+}
+.programming-section .jornada p {
+  margin: 0;
+}
+
+.card-programming {
+  background-color: rgba(173, 173, 173, 0.2);
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 80%;
+}
+.card-programming .finalized {
+  color: red;
+}
+.card-programming .no-finalized {
+  color: green;
+}
+.card-programming p {
+  margin: 0;
+}
+.card-programming .scores {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.card-programming .scores span {
+  font-size: 16px;
+  font-weight: bolder;
 }
 
 .btn-fill {
@@ -548,6 +605,13 @@ form textarea {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .programming {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .scores p {
+    font-size: 16px;
   }
 }
 

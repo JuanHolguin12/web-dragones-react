@@ -1,6 +1,7 @@
 @use 'variables' as *;
 
 .footer-container {
+    margin-top: 40px;
     padding: 2% 5%;
     background-color: $color-principal;
     color: $text-opacity;
