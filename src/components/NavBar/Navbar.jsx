@@ -9,7 +9,7 @@ export function Navbar() {
             <nav class="navbar navbar-expand-lg" aria-label="Menú de Navegación Principal">
                 <div class="container-fluid">
                     <div class="logo">
-                        <Link href="./index.html">
+                        <Link to="/">
                             <img src={logo} alt="Club Dragones de Baloncesto" />
                         </Link>
                     </div>
@@ -31,7 +31,7 @@ export function Navbar() {
                                 <NavLink className="nav-link" aria-current="page" aria-disabled="true" to="/festival_internacional">Festival Internacional</NavLink>
                             </li>
                             <li className="nav-item">
-                                <NavLink className="nav-link" aria-current="page" aria-disabled="true" to="/programacion">Programacion</NavLink>
+                                <NavLink className="nav-link" aria-current="page" aria-disabled="true" to="/programacion">Programacion FIB 2025</NavLink>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link btn">Inscribirte</a>

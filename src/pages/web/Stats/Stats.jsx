@@ -11,7 +11,7 @@ export function Stats() {
     /*     const [filter, setFilter] = useState("");*/
     const [filtered, setFilteredData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [selectedRama, setSelectedRama] = useState("");
+    const [selectedRama, setSelectedRama] = useState("masc");
 
 
     useEffect(() => {
@@ -22,7 +22,6 @@ export function Stats() {
                 );
                 const result = await res.json();
                 setData(result.values); // ✅ guardar solo las filas
-                setFilteredData(result.values.slice(1));
 
             } catch (error) {
                 console.error("Error al obtener los datos:", error);

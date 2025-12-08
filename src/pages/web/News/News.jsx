@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 export function News() {
     const location = useLocation();
     const news = location.state?.news;
-    console.log(news);
 
 
     return (

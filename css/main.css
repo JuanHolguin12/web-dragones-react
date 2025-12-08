@@ -164,6 +164,10 @@ section:not(:nth-child(1)) {
   margin: 2em 0;
 }
 
+.programming-page {
+  min-height: calc(100vh - 150px);
+}
+
 .programming-section {
   border: 1px solid rgba(128, 128, 128, 0.329);
   border-radius: 10px;
@@ -171,36 +175,60 @@ section:not(:nth-child(1)) {
 }
 .programming-section .content-programming {
   padding: 16px;
+  height: fit-content;
+  max-height: calc(100vh - 250px);
+  overflow-y: scroll;
+}
+.programming-section .content-programming::-webkit-scrollbar {
+  display: none;
 }
 .programming-section .content-programming .programming {
   text-align: left;
   border-left: 4px solid #B93D17;
 }
+.programming-section .content-programming .programming__empty-status {
+  font-size: 24px;
+  grid-column: span 2;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: rgba(185, 61, 23, 0.337254902);
+  text-align: center;
+}
 .programming-section .content-programming .category-span {
   color: white;
   background-color: #010955;
   border-radius: 99999px;
-  padding: 8px;
+  padding: 100px;
 }
-.programming-section brazo para pantallas .jornada {
+.programming-section .jornada {
   background-color: #B93D17;
   border-radius: 10px 10px 0 0;
   padding: 20px;
   color: white;
 }
-.programming-section brazo para pantallas .jornada i {
+.programming-section .jornada i {
   width: 40px;
 }
-.programming-section brazo para pantallas .jornada p {
+.programming-section .jornada p {
   margin: 0;
 }
 
 .card-programming {
-  background-color: rgba(173, 173, 173, 0.2);
+  background-color: rgba(173, 173, 173, 0.0823529412);
   margin: 10px;
   padding: 10px;
   border-radius: 10px;
   font-size: 80%;
+}
+.card-programming .hour-court {
+  font-weight: 600;
+}
+.card-programming .category-programming {
+  width: fit-content;
+  padding: 4px;
+  text-align: center;
+  background-color: #010955;
+  color: white;
+  border-radius: 9999px;
 }
 .card-programming .finalized {
   color: red;
@@ -608,7 +636,7 @@ form textarea {
   }
   .programming {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .scores p {
     font-size: 16px;

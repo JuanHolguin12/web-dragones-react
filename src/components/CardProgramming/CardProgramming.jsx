@@ -1,4 +1,6 @@
+import { LineSpinner } from 'ldrs/react';
 import React from 'react'
+
 
 export function CardProgramming(props) {
     const { info } = props
@@ -10,29 +12,36 @@ export function CardProgramming(props) {
         'pointsVisit': 4,
         'visitTeam': 5,
         'category': 6,
-        'court': 7
+        'rama': 7,
+        'court': 8
     }
-    console.log(info);
 
     return (
-        <div className='card-programming'>
-            <div className=''>
-                <div className='d-flex justify-content-between'>
-                    <p>
-                        {info[params.day]} - {info[params.hour]}
-                    </p>
-                    <span className={`status-game ${info[params.pointsLocal] == '' || info[params.pointsVisit] == '' ? "no-finalized" : "finalized"}`}> {info[params.pointsLocal] == '' || info[params.pointsVisit] == '' ? "Por Jugar" : "Finalizado"}</span>
-                </div>
-                <div className='scores'>
-                    <p>
-                        {info[params.localTeam]}
-                    </p>
-                    <span>{info[params.pointsLocal] == '' ? "0" : info[params.pointsLocal]} - {info[params.pointsVisit] == '' ? "0" : info[params.pointsVisit]} </span>
-                    <p>
-                        {info[params.visitTeam]}
-                    </p>
+        <>
+            <div className='card-programming'>
+                <div>
+                    <div className='d-flex justify-content-between'>
+                        <div>
+                            <p className='hour-court'>
+                                {info[params.hour]} - {info[params.court]}
+                            </p>
+                        </div>
+                        <div className='d-flex flex-column'>
+                            <span className='category-programming'>{info[params.category]}-{info[params.rama]}</span>
+                            <span className={`status-game ${info[params.pointsLocal] == '' || info[params.pointsVisit] == '' ? "no-finalized" : "finalized"}`}> {info[params.pointsLocal] == '' || info[params.pointsVisit] == '' ? "Por Jugar" : "Finalizado"}</span>
+                        </div>
+                    </div>
+                    <div className='scores'>
+                        <p>
+                            {info[params.localTeam]}
+                        </p>
+                        <span>{info[params.pointsLocal] == '' ? "0" : info[params.pointsLocal]} - {info[params.pointsVisit] == '' ? "0" : info[params.pointsVisit]} </span>
+                        <p>
+                            {info[params.visitTeam]}
+                        </p>
+                    </div>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
