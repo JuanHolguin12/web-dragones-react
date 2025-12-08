@@ -20,6 +20,9 @@ export function FIB() {
                             <i class="fa-regular fa-chart-bar"></i>
                             <span className='ms-2'>Estadisticas</span>
                         </Link>
+                        <a className='btn-outline' href="../../../../public/Reglamento XX Festival Internacional Club Dragones 2025.pdf" target="_blank">
+                            Ver Reglamento
+                        </a>
                     </div>
                 </header>
                 <figure class="image-section">
@@ -36,7 +39,7 @@ export function FIB() {
                     <div class="card-icons">
                         <i class="fa-regular fa-calendar-days icon"></i>
                         <h3>Fechas</h3>
-                        <p>1-16 de Diciembre 2025</p>
+                        <p>13-16 de Diciembre 2025</p>
                     </div>
                     <div class="card-icons">
                         <i class="fa-solid fa-map-pin icon"></i>
@@ -61,6 +64,12 @@ export function FIB() {
                     <p>Sigue tus estadisticas indivuaduales y esfuerzate en cada partido para ser el ganador del premio</p>
                 </header>
                 <div class="category-cards-container d-flex flex-wrap justify-content-center padding-sections">
+                    <Link to={"/estadisticas"} class="category-card">
+                        <h3>U12</h3>
+                    </Link>
+                    <Link to={"/estadisticas"} class="category-card">
+                        <h3>U14</h3>
+                    </Link>
                     <Link to={"/estadisticas"} class="category-card">
                         <h3>U16</h3>
                     </Link>

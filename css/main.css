@@ -1,3 +1,4 @@
+@charset "UTF-8";
 nav ul {
   width: 100%;
   text-align: center;
@@ -123,15 +124,35 @@ h3 {
 .filter-container {
   width: 100%;
   display: flex;
+  flex-direction: column;
 }
 .filter-container div {
-  margin: 40px;
+  margin: 40px 0 0 0;
 }
 .filter-container div label {
   margin-right: 15px;
 }
-
-select {
+.filter-container {
+  /* Cuando el select está mostrando el placeholder */
+}
+.filter-container input::placeholder,
+.filter-container select:invalid {
+  color: rgba(185, 61, 23, 0.337254902);
+  /* gris opaco */
+}
+.filter-container {
+  /* Cuando se selecciona una opción válida */
+}
+.filter-container select:valid {
+  color: #000;
+  /* color normal */
+}
+.filter-container select option {
+  color: #000;
+  /* color normal */
+}
+.filter-container input,
+.filter-container select {
   padding: 10px 14px;
   font-size: 16px;
   border: 1px solid #ccc;
@@ -141,12 +162,12 @@ select {
   outline: none;
   transition: 0.2s;
 }
-
-select:hover {
+.filter-container input:hover,
+.filter-container select:hover {
   border-color: #777;
 }
-
-select:focus {
+.filter-container input:focus,
+.filter-container select:focus {
   border-color: rgba(185, 61, 23, 0.337254902);
   box-shadow: 0 0 4px rgba(185, 61, 23, 0.337254902);
 }
@@ -637,6 +658,10 @@ form textarea {
   .programming {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .filter-container {
+    gap: 100px;
+    flex-direction: row;
   }
   .scores p {
     font-size: 16px;

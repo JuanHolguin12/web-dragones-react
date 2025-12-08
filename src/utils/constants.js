@@ -13,5 +13,7 @@ export const ENV = {
             thusday: import.meta.env.VITE_SHEET_RANGE_PROGRAMMING + '!AE2:AM2000',
         }
     },
-    WHATSAPP_NUMBER: "3195888599",
+    SOCIAL_MEDIA:{
+        WHATSAPP_NUMBER: "3195888599",
+    }
 };

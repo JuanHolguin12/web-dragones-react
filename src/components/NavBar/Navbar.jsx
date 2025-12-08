@@ -2,8 +2,10 @@ import React from 'react'
 
 import { logo } from '../../assets'
 import { Link, NavLink } from 'react-router-dom'
+import { ENV } from '../../utils'
 
 export function Navbar() {
+    let message = "Quiero ser parte de la familia dragones. ¿Podrían proporcionarme más información? ⛹️‍♂️🔥🐲".normalize('NFC');
     return (
         <header class="header-container">
             <nav class="navbar navbar-expand-lg" aria-label="Menú de Navegación Principal">
@@ -34,7 +36,7 @@ export function Navbar() {
                                 <NavLink className="nav-link" aria-current="page" aria-disabled="true" to="/programacion">Programacion FIB 2025</NavLink>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link btn">Inscribirte</a>
+                                <Link to={`https://wa.me/${ENV.SOCIAL_MEDIA.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`} target='_blank' className="nav-link btn">Inscribirte</Link>
                             </li>
                         </ul>
                     </div>

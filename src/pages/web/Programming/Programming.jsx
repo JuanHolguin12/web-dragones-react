@@ -17,6 +17,7 @@ export function Programming() {
     /*  */
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedRama, setSelectedRama] = useState("");
+    const [selectedName, setSelectedName] = useState("");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,38 +56,49 @@ export function Programming() {
         if (thusday.length > 0) {
             applyFilters();
         }
-    }, [selectedCategory, selectedRama, saturday, sunday, monday, thusday]);
+        if (selectedName > 0) {
+            applyFilters()
+        }
+    }, [selectedCategory, selectedRama, saturday, sunday, monday, thusday, selectedName]);
 
 
     const applyFilters = () => {
-        let sat = saturday; // toda la data menos encabezados
-        let sun = sunday;
-        let mon = monday;
-        let thu = thusday;
-        // Filtrar por categoría (columna 3)
-        if (selectedCategory !== "") {
-            sat = sat.filter(row => row[6] === selectedCategory);
-            sun = sun.filter(row => row[6] === selectedCategory);
-            mon = mon.filter(row => row[6] === selectedCategory);
-            thu = thu.filter(row => row[6] === selectedCategory);
-        }
 
-        // Filtrar por rama (columna 4 por ejemplo)
-        if (selectedRama !== "") {
-            sat = sat.filter(row => row[7] === selectedRama);
-            sun = sun.filter(row => row[7] === selectedRama);
-            mon = mon.filter(row => row[7] === selectedRama);
-            thu = thu.filter(row => row[7] === selectedRama);
-        }
+        // Función que aplica TODOS los filtros a un array de filas
+        const filterDay = (data) => {
+            return data
+                // Filtrar por categoría
+                .filter(row =>
+                    selectedCategory === "" || selectedCategory === "todos" || row[6] === selectedCategory
+                )
+                // Filtrar por rama
+                .filter(row =>
+                    selectedRama === "" || selectedRama === "todos" || row[7] === selectedRama
+                )
+                // Filtrar por equipo (col 2 y col 5)
+                .filter(row => {
+                    if (selectedName.trim() === "") return true;
+                    const term = selectedName.toLowerCase();
+                    return (
+                        row[2].toLowerCase().includes(term) ||
+                        row[5].toLowerCase().includes(term)
+                    );
+                });
+        };
 
-        setFilteredSaturday(sat);
-        setFilteredSunday(sun)
-        setFilteredMonday(mon)
-        setFilteredThusday(thu)
+        // Aplicamos la misma función a cada día
+        setFilteredSaturday(filterDay(saturday));
+        setFilteredSunday(filterDay(sunday));
+        setFilteredMonday(filterDay(monday));
+        setFilteredThusday(filterDay(thusday));
     };
+
 
     const handleRama = (value) => {
         setSelectedRama(value);
+    };
+    const handleName = (value) => {
+        setSelectedName(value);
     };
     const handleCategory = (value) => {
         if (selectedRama == "Mixto") {
@@ -100,26 +112,29 @@ export function Programming() {
 
     return (
         <main className='padding-sections programming-page'>
-            <div className='d-flex gap-5 filter-container'>
+            <div className='d-flex filter-container'>
                 <div>
-                    <label for="categorias">Categorias:</label>
-                    <select onChange={(e) => handleCategory(e.target.value)} id='categorias'>
-                        <option value="">Todos</option>
+                    <select required onChange={(e) => handleCategory(e.target.value)} id='categorias'>
+                        <option value="" disabled selected hidden>Seleccione una categoria</option>
+                        <option value="todos">Todos</option>
                         <option value="U18">U18</option>
                         <option value="U16">U16</option>
                         <option value="U12">U12</option>
                     </select>
                 </div>
                 <div>
-                    <label for="ramas">Ramas:</label>
-                    <select onChange={(e) => handleRama(e.target.value)} id='ramas'>
-                        <option value="">Todos</option>
+                    <select required onChange={(e) => handleRama(e.target.value)} id='ramas'>
+                        <option  value="" disabled selected hidden>Seleccione una rama</option>
+                        <option value="todos">Todos</option>
                         <option value="Masc">Masc</option>
                         <option value="Fem">Fem</option>
                         {selectedCategory === "U12" && (
                             <option value="Mixto">Mixto</option>
                         )}
                     </select>
+                </div>
+                <div>
+                    <input placeholder='Nombre del equipo' onChange={(e) => handleName(e.target.value)} id='name' />
                 </div>
             </div>
             <section className='programming-section'>
@@ -163,7 +178,7 @@ export function Programming() {
                 </div>
                 <div className='content-programming'>
                     <div className='programming'>
-                         {filterMonday.length < 1 ?
+                        {filterMonday.length < 1 ?
                             <p className='programming__empty-status'>No hay información de partidos</p>
                             :
                             filterMonday.map((row) => (
@@ -180,7 +195,7 @@ export function Programming() {
                 </div>
                 <div className='content-programming'>
                     <div className='programming'>
-                         {filterThusday.length < 1 ?
+                        {filterThusday.length < 1 ?
                             <p className='programming__empty-status'>No hay información de partidos</p>
                             :
                             filterThusday.map((row) => (

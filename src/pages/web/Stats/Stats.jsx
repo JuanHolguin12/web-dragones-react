@@ -11,7 +11,7 @@ export function Stats() {
     /*     const [filter, setFilter] = useState("");*/
     const [filtered, setFilteredData] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState("");
-    const [selectedRama, setSelectedRama] = useState("masc");
+    const [selectedRama, setSelectedRama] = useState("");
 
 
     useEffect(() => {
@@ -67,25 +67,14 @@ export function Stats() {
                     return Number(b[8]) - Number(a[8]);
                 case "ro":
                     return Number(b[9]) - Number(a[9]);
-                case "tl":
-                    return Number(b[10]) - Number(a[10]);
+                case "":
+                    return Number(b[5]) - Number(a[5]);
             }
         });
 
         setFilteredData(sorted);
     };
 
-    /* const handleSelect = (value) => {
-        //const value = "U18"
-        let newData = ""
-        if (value == "") {
-            newData = data.slice(1)
-        } else {
-            newData = data.filter(row => row[3] === value);
-        }
-        setFilteredData(newData)
-
-    }; */
 
     useEffect(() => {
         if (data.length > 0) {
@@ -102,29 +91,29 @@ export function Stats() {
         <main className='stats-page d-flex flex-column'>
             <section className='filter-container'>
                 <div>
-                    <label for="categorias">Categorias:</label>
-                    <select onChange={(e) => handleCategory(e.target.value)} id='categorias'>
+                    <select required onChange={(e) => handleCategory(e.target.value)} id='categorias'>
+                        <option hidden disabled selected value="">Selecciona la categoria</option>
                         <option value="">Todos</option>
                         <option value="U18">U18</option>
                         <option value="U16">U16</option>
                     </select>
                 </div>
                 <div>
-                    <label for="ramas">Ramas:</label>
-                    <select onChange={(e) => handleRama(e.target.value)} id='ramas'>
+                    <select required onChange={(e) => handleRama(e.target.value)} id='ramas'>
+                        <option hidden disabled selected value="">Selecciona la rama</option>
+                        <option value="">Todos</option>
                         <option value="masc">Masc</option>
                         <option value="fem">Fem</option>
                     </select>
                 </div>
                 <div>
-                    <label for="tipo_estadistica">Tipo de estadistica:</label>
-                    <select onChange={(e) => handleSortByAsistencias(e.target.value)} id='tipo_estadistica'>
+                    <select required onChange={(e) => handleSortByAsistencias(e.target.value)} id='tipo_estadistica'>
+                        <option hidden disabled selected value="">Tipo de estadistica</option>
                         <option value="puntos">Puntos</option>
                         <option value="triples">Triples</option>
                         <option value="asistencias">Asistencias</option>
                         <option value="rd">Rebotes defensivos</option>
                         <option value="ro">Rebotes ofensivos</option>
-                        <option value="tl">Tiros Libres</option>
                     </select>
                 </div>
             </section>
