@@ -76,6 +76,9 @@ li .active::after {
   padding-top: 0.5rem;
   margin-top: 0.5rem;
 }
+.footer-container .footer-bottom p {
+  text-align: center;
+}
 .footer-container .icon-social {
   font-size: 1.5em;
   margin: 0 0.3em;
@@ -361,28 +364,56 @@ section:not(:nth-child(1)) {
   border-radius: 10px;
   box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  overflow: hidden;
 }
 .news-container .news-article img {
-  width: 100%;
+  width: 80%;
   height: 17em;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 15px;
 }
-.news-container .news-article p {
-  font-size: 1em;
+.news-container .news-article .description {
+  height: 30%;
+  overflow: hidden;
+}
+.news-container .news-article .description p {
+  font-size: 0.8em;
   text-align: left;
-  margin-bottom: 10px;
   color: rgba(60, 60, 60, 0.5647058824);
 }
 
 /* New Page */
-.new-page-section img {
+.new-page-section {
+  min-height: calc(100vh - 550px);
+}
+.new-page-section .container-news {
+  display: flex;
+  flex-direction: column;
+}
+.new-page-section .container-news aside p {
+  text-align: left;
+  white-space: pre-line;
+}
+.new-page-section .container-news img {
   width: 70%;
   border-radius: 8px;
 }
+.new-page-section .back {
+  width: 100%;
+  text-align: center;
+}
 
 /* Galeria Dragones */
+.gallery-container img,
+.carousel img {
+  height: 300px;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
 .gallery-container {
   display: flex;
   flex-direction: row;
@@ -391,12 +422,12 @@ section:not(:nth-child(1)) {
   gap: 10px;
   padding: 3em 0;
   background-color: #f4f4f4;
-}
-.gallery-container img {
-  width: 80%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  /* img {
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+  } */
 }
 
 /* Nuestra Historia */
@@ -622,6 +653,13 @@ form textarea {
   .news-container {
     display: flex;
     flex-direction: row;
+  }
+  .container-news {
+    display: flex;
+    flex-direction: row !important;
+  }
+  .container-news aside {
+    width: 60%;
   }
   .news-article {
     min-width: 10%;

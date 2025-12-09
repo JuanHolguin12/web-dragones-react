@@ -13,7 +13,9 @@ export const ENV = {
             thusday: import.meta.env.VITE_SHEET_RANGE_PROGRAMMING + '!AE2:AM2000',
         }
     },
-    SOCIAL_MEDIA:{
+    SOCIAL_MEDIA: {
         WHATSAPP_NUMBER: "3195888599",
+        FACEBOOK: "https://www.facebook.com/clubdragonesdebaloncesto?locale=es_LA",
+        INSTAGRAM: "https://www.instagram.com/club_dragones/",
     }
 };

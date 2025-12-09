@@ -1,5 +1,5 @@
 import React from 'react'
-import { logoJPG } from '../../../assets'
+import { FIB_logo } from '../../../assets'
 import { Link } from 'react-router-dom'
 import { Programming } from '../Programming'
 
@@ -26,7 +26,7 @@ export function FIB() {
                     </div>
                 </header>
                 <figure class="image-section">
-                    <img src={logoJPG} alt="Imagen Festival Internacional del Club Dragones de Baloncesto" />
+                    <img src={FIB_logo} alt="Imagen Festival Internacional del Club Dragones de Baloncesto" />
                 </figure>
             </section>
             <section class="info-section padding-sections">

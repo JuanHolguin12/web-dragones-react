@@ -1,20 +1,23 @@
 import React from 'react'
-import { logoJPG } from '../../../assets'
+import { logoJPG, Noticia1, Noticia2, Noticia3 } from '../../../assets'
+import { G1, G2, G3, G4, G5, G6, G7, G8 } from '../../../assets/JPG/Gallery'
 import { map } from 'lodash'
 import { Newscard, CategoryCard, GallerySlideGrid } from "../../../components"
+import { Link } from 'react-router-dom'
+import { ENV } from '../../../utils'
 
 
 export function Home() {
+  let message = "Quiero ser parte de la familia dragones. ¿Podrían proporcionarme más información? ⛹️‍♂️🔥🐲".normalize('NFC');
   return (
     <main>
-
       <section class="main-section-img">
         <header class="header-section">
           <h1>Club Dragones de Baloncesto</h1>
           <p>Pasión, dedicación y excelencia en cada jugada. Únete a la familia Dragones y vive el baloncesto
             como nunca antes.</p>
           <div class="button-container flex-md-row">
-            <a class="btn-fill" href='https://wa.me/573195888599?text=Hola,%20quiero%20más%20información'>Inscribete Ahora</a>
+            <Link to={`https://wa.me/${ENV.SOCIAL_MEDIA.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`} target='_blank' className="btn-fill">Inscribirte</Link>
             <a class="btn-outline" href='#categories'>Ver Categorías</a>
           </div>
         </header>
@@ -49,6 +52,7 @@ export function Home() {
             <CategoryCard key={category.id} category={category} />
           ))}
         </div>
+
       </section>
       {/* Galeria Dragones */}
       <section id='galeria' class="gallery-section sub-header padding-sections">
@@ -61,9 +65,18 @@ export function Home() {
 }
 
 const news_list = [
-  { id: 1, date: "01/01/2025", title: "¡Nuestro equipo ha ganado el último torneo!", imgSrc: logoJPG, imgAlt: "Imagen del torneo", description: "Estamos muy orgullosos de nuestros jugadores y entrenadores por su dedicación y esfuerzo que nos llevaron a la victoria." },
-  { id: 2, date: "01/01/2025", title: "Nuevo Entrenador Anunciado", imgSrc: logoJPG, imgAlt: "Imagen del nuevo entrenador", description: "Nos complace anunciar la incorporación de un nuevo entrenador con una vasta experiencia en el baloncesto profesional." },
-  { id: 3, date: "01/01/2025", title: "Inauguración de la Nueva Cancha", imgSrc: logoJPG, imgAlt: "Imagen de la nueva cancha", description: "El próximo mes inauguraremos nuestra nueva cancha de baloncesto con un evento especial. ¡No te lo pierdas!" },
+  {
+    id: 1, date: "08/12/2025", title: "¡Disfruta de nuestro torneo Internacional de final de año!", imgSrc: Noticia1, imgAlt: "Flayer del torneo, Festival internacional de baloncesto, del 13 al 16 de diciembre",
+    description: "Queremos invitar a todos los equipos de baloncesto a participar en nuestro Festival Deportivo Dragones 2024, el evento más esperado y representativo del año.Este gran encuentro se llevará a cabo del 13 al 16 de diciembre, días en los que viviremos la pasión, la competencia y el crecimiento deportivo que caracterizan a nuestro club.Te invitamos a ser parte del festival más importante y más competitivo del Club Dragones de Baloncesto, un espacio diseñado para que jugadores, entrenadores y familias disfruten una experiencia inolvidable.Tendremos partidos emocionantes, premiaciones especiales, actividades recreativas y el mejor ambiente deportivo.¡No te quedes por fuera!Únete, compite y vive con nosotros cuatro días llenos de energía, talento y espíritu deportivo.¡Nos vemos en la cancha!"
+  },
+  {
+    id: 2, date: "28/11/2025", title: "🎉 ¡Apertura oficial de matrículas en el Club Dragones de Baloncesto! 🐉🏀", imgSrc: Noticia2, imgAlt: "Apertura de incripciones al club Dragones de baloncesto",
+    description: "Invitamos a todos los deportistas, desde principiantes hasta jugadores avanzados, a unirse a nuestra gran familia deportiva.\nEsta es tu oportunidad de formar parte del club más destacado y competitivo de la región, donde entrenamos con disciplina, pasión y un enfoque integral en el crecimiento de cada atleta.\nDurante el proceso de matrícula podrás acceder a:\n-Entrenamientos estructurados por niveles y categorías\n-Entrenadores certificados y especializados\n-Espacios de formación técnica, táctica y física\n-Participación en torneos, festivales y encuentros deportivos\n-Actividades recreativas y eventos del club\nYa sea que quieras iniciar tu camino en el baloncesto o potenciar tu rendimiento, Dragones es el lugar perfecto para crecer, aprender y competir.\n📅 Cupos limitados\nAsegura tu lugar y comienza la temporada con nosotros.\n🔥 ¡Enciende tu pasión por el baloncesto y matricúlate hoy!"
+  },
+  {
+    id: 3, date: "07/11/2025", title: "Gran Participación de Dragones en el Torneo de Arbeláez, Cundinamarca", imgSrc: Noticia3, imgAlt: "Imagen de las chicas de U16 femenino, campeonas en el torneo de Arbeláez, Cundinamarca",
+    description: "Este fin de semana nuestro club vivió una experiencia inolvidable en Arbeláez, Cundinamarca, donde participamos en un torneo lleno de emoción, talento y un alto nivel competitivo. Cada una de nuestras categorías demostró el fruto del trabajo constante, la disciplina y el compromiso que venimos construyendo día a día.\nLos jugadores dejaron en la cancha no solo su esfuerzo físico, sino también su pasión por el baloncesto y el espíritu que caracteriza a nuestro club. Cada partido fue una oportunidad para crecer, para aprender y para mostrar la evolución deportiva que están alcanzando nuestros equipos.\nLos resultados obtenidos nos llenan de orgullo, no solo por los lugares alcanzados, sino por la entrega, la unión y la mentalidad competitiva que cada equipo demostró durante todo el torneo. Seguimos avanzando con la mirada puesta en seguir formando deportistas íntegros, fuertes y comprometidos con su propio proceso.\nAgradecemos a los padres de familia, entrenadores y acompañantes que hicieron parte de este viaje. Su apoyo es fundamental para que nuestros jugadores sigan creciendo y conquistando nuevos escenarios deportivos.\n🏀 Resultados del Torneo – Arbeláez, Cundinamarca\n🏆 U16 Femenino – Campeonas\n🥈 U16 Masculino – Subcampeones\n🥉 U14 Femenino – Tercer puesto\n💥 U12 – Cuarto puesto"
+  },
 ]
 
 const category_list = [
@@ -73,12 +86,12 @@ const category_list = [
 ]
 
 const gallery_images = [
-  { id: 1, imgSrc: logoJPG, imgAlt: "Imagen del viaje a Bogotá" },
-  { id: 2, imgSrc: logoJPG, imgAlt: "Imagen del entrenamiento" },
-  { id: 3, imgSrc: logoJPG, imgAlt: "Imagen del partido" },
-  { id: 4, imgSrc: logoJPG, imgAlt: "Imagen de la celebración" },
-  { id: 5, imgSrc: logoJPG, imgAlt: "Imagen de la premiación" },
-  { id: 6, imgSrc: logoJPG, imgAlt: "Imagen del equipo" },
-  { id: 7, imgSrc: logoJPG, imgAlt: "Imagen del torneo" },
-  { id: 8, imgSrc: logoJPG, imgAlt: "Imagen del Festival Internacional" },
+  { id: 1, imgSrc: G1, imgAlt: "Imagen del viaje a Bogotá" },
+  { id: 2, imgSrc: G2, imgAlt: "Imagen del entrenamiento" },
+  { id: 3, imgSrc: G3, imgAlt: "Imagen del partido" },
+  { id: 4, imgSrc: G4, imgAlt: "Imagen de la celebración" },
+  { id: 5, imgSrc: G5, imgAlt: "Imagen de la premiación" },
+  { id: 6, imgSrc: G6, imgAlt: "Imagen del equipo" },
+  { id: 7, imgSrc: G7, imgAlt: "Imagen del torneo" },
+  { id: 8, imgSrc: G8, imgAlt: "Imagen del Festival Internacional" },
 ]

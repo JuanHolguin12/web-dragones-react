@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function News() {
     const location = useLocation();
@@ -9,7 +9,7 @@ export function News() {
     return (
         <main className='new-page-section pt-5'>
             <h2 className='text-center'>{news.title}</h2>
-            <section className='d-flex padding-sections'>
+            <section className='container-news d-flex padding-sections'>
                 <aside>
                     <p>{news.description}</p>
                 </aside>
@@ -17,7 +17,9 @@ export function News() {
                     <img src={news.imgSrc} />
                 </aside>
             </section>
-
+            <div className='back'>
+                <Link className='btn-fill' to={'/'}>Volver al Inicio</Link>
+            </div>
         </main>
     )
 }

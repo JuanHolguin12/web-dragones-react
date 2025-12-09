@@ -1,5 +1,4 @@
 import React from 'react'
-import { logoJPG } from '../../assets'
 import { Link } from 'react-router-dom'
 
 export function Newscard(props) {
@@ -16,12 +15,14 @@ export function Newscard(props) {
 
     return (
         <article className="news-article">
-            <p className="news-date">01/01/2025</p>
+            <p className="news-date">{news.date}</p>
             <Link to={`/news/${slug}`} state={{ news }}>
                 <h3>{news.title}</h3>
             </Link>
-            <img src={logoJPG} alt="Imagen del nuevo entrenador" />
-            <p>{news.description}</p>
+            <img src={news.imgSrc} alt="Imagen del nuevo entrenador" />
+            <div className='description'>
+                <p>{news.description}</p>
+            </div>
         </article>
     )
 }
