@@ -52,6 +52,7 @@ h3 {
 .filter-container {
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
 
     div {
@@ -83,6 +84,8 @@ h3 {
 
     input,
     select {
+        width: 15rem;
+        height: 40px;
         padding: 10px 14px;
         font-size: 16px;
         border: 1px solid #ccc;
@@ -298,6 +301,10 @@ section:not(:nth-child(1)) {
     align-items: center;
     justify-content: center;
     gap: .5em;
+    .news-date{
+        text-align: left;
+        color: $text-opacity
+    }
 
     a {
         h3 {
@@ -409,32 +416,38 @@ section:not(:nth-child(1)) {
         gap: 2em;
         justify-content: center;
         align-items: center;
+        p{
+            text-align: left;
+        }
     }
 
     img {
         border-radius: 10px;
         width: 75%;
+        height: 100%;
         margin: 0 auto;
     }
 }
 
 /* Nuestros Valores */
 .values-container {
+    display: flex;
+    align-items: center;
+    margin: 5%;
     gap: 1em;
     justify-content: center;
     margin-top: 2em;
 }
 
 .card-icons {
-    @include cards(16rem, 15rem);
-
+    @include cards(16rem, 18rem);
+    
     p {
         color: $text-opacity;
     }
 
     .icon-value,
     .icon {
-        display: inline-flex;
         align-items: center;
         justify-content: center;
         width: 80px;
@@ -458,9 +471,17 @@ section:not(:nth-child(1)) {
 
 /* Nuestro Equipo */
 .team-container {
+    display: flex;
+    overflow: scroll;
+    padding: 0 10% 5% 10%;
     gap: 1em;
-    justify-content: center;
     margin-top: 2em;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+        display: none
+    }
+
 
     .team-card {
         @include cards(16rem, 15rem);
@@ -486,6 +507,7 @@ section:not(:nth-child(1)) {
 
     .category-card {
         @include cards(12rem, 12rem);
+        height: 12rem;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -622,6 +644,12 @@ form {
 
 
 
+@media (min-width: 1024px) {
+    .filter-container {
+        column-gap: 50px;
+        flex-direction: row;
+    }
+}
 @media (min-width: 768px) {
     .navbar {
         padding: 0 5rem;
@@ -703,14 +731,18 @@ form {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .filter-container {
-        gap: 100px;
-        flex-direction: row;
-    }
 
     .scores {
         p {
             font-size: 16px;
         }
+    }
+
+    .team-container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .values-container {
+        align-items: stretch;
     }
 }

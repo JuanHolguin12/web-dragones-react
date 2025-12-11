@@ -35,7 +35,7 @@ export function FIB() {
                     <p>Días de competencia de baloncesto de alto nivel con equipos nacionales e internacionales, con grandes
                         premios individuales y de equipos</p>
                 </div>
-                <div class="values-container d-flex flex-column flex-md-row align-items-center">
+                <div class="values-container d-flex flex-column flex-md-row">
                     <div class="card-icons">
                         <i class="fa-regular fa-calendar-days icon"></i>
                         <h3>Fechas</h3>

@@ -14,8 +14,9 @@ export function Home() {
       <section class="main-section-img">
         <header class="header-section">
           <h1>Club Dragones de Baloncesto</h1>
-          <p>Pasión, dedicación y excelencia en cada jugada. Únete a la familia Dragones y vive el baloncesto
-            como nunca antes.</p>
+          <p>En Dragones vivimos el baloncesto con el corazón, formando deportistas que creen en su talento y trabajan cada día para ser mejores. Cada entrenamiento, cada esfuerzo y cada victoria nos une como una gran familia que respira este deporte.</p>
+          <p>Únete a la familia Dragones y vive el baloncesto como nunca antes.
+            Aquí encontrarás crecimiento, disciplina, amistades para toda la vida y un ambiente donde tu potencial siempre será valorado. ¡Ven y sé parte de una historia construida con entrega y sueños que nunca dejan de crecer!</p>
           <div class="button-container flex-md-row">
             <Link to={`https://wa.me/${ENV.SOCIAL_MEDIA.WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`} target='_blank' className="btn-fill">Inscribirte</Link>
             <a class="btn-outline" href='#categories'>Ver Categorías</a>
@@ -31,7 +32,7 @@ export function Home() {
         <div class="sub-header">
           <h2>Noticias Recientes</h2>
           <p>Esta sección contiene novedades y eventos recientes del Club
-            dargones</p>
+            dragones</p>
         </div>
         <div class="news-container" data-aos="fade-up">
           {map(news_list, (news) => (

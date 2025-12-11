@@ -8,12 +8,17 @@
 }
 
 @mixin cards ($width, $height) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: white;
     color: black;
     padding: 1em;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: $width;
-    height: $height;
     text-align: center;
+    p{
+        margin:  0;
+    }
 }
