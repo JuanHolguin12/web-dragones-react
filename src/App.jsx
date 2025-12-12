@@ -3,6 +3,8 @@ import { AuthRouter } from "./router/AuthRouter"
 import { useEffect } from 'react'
 import Aos from 'aos'
 import "aos/dist/aos.css";
+import { ScrollToTop } from "./components";
+
 
 
 function App() {
@@ -14,6 +16,7 @@ function App() {
   }, []);
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AuthRouter />
     </BrowserRouter>
   )

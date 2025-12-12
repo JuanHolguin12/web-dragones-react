@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route, Navigate } from "react-router-dom";
 
 
+
 //LAYOUT
 import { WebLayout } from '../layout/WebLayout'
 //PAGES

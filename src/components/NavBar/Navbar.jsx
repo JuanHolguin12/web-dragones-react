@@ -1,11 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { logo } from '../../assets'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { ENV } from '../../utils'
 
 export function Navbar() {
     let message = "Quiero ser parte de la familia dragones. ¿Podrían proporcionarme más información? ⛹️‍♂️🔥🐲".normalize('NFC');
+    const { pathname } = useLocation();
+    useEffect(() => {
+        const navCollapse = document.getElementById('navbarTogglerDemo02');
+
+        // Si existe el collapse, se cierra
+        if (navCollapse && window.bootstrap) {
+            const bsCollapse = window.bootstrap.Collapse.getInstance(navCollapse)
+                || new window.bootstrap.Collapse(navCollapse, { toggle: false });
+
+            bsCollapse.hide();
+        }
+    }, [pathname]);  // 👈 Se ejecuta cada vez que cambias de ruta
     return (
         <header class="header-container">
             <nav class="navbar navbar-expand-lg" aria-label="Menú de Navegación Principal">

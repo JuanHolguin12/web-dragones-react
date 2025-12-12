@@ -484,8 +484,7 @@ section:not(:nth-child(1)) {
 
 
     .team-card {
-        @include cards(16rem, 15rem);
-
+        @include cards(30rem, 15rem);
         img {
             width: 7rem;
             border-radius: 50%;
