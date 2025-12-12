@@ -526,11 +526,14 @@ section:not(:nth-child(1)) {
   padding: 1em;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 30rem;
+  width: 15rem;
   text-align: center;
 }
 .team-container .team-card p {
   margin: 0;
+}
+.team-container .team-card {
+  min-width: 15rem;
 }
 .team-container .team-card img {
   width: 7rem;
